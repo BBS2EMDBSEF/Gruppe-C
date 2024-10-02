@@ -23,28 +23,6 @@ SET time_zone = "+00:00";
 CREATE DATABASE IF NOT EXISTS `BBS_Projekt` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `BBS_Projekt`;
 -- --------------------------------------------------------
-/*
---
--- Tabellenstruktur für Tabelle `kommentare`
---
-
-CREATE TABLE `kommentare` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `user_id` int(10) UNSIGNED DEFAULT NULL,
-  `post` text NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Daten für Tabelle `kommentare`
---
-
-INSERT INTO `kommentare` (`id`, `user_id`, `post`, `created_at`, `updated_at`) VALUES
-(12, 75, 'hallo dankeschön', '2022-02-27 11:49:07', NULL),
-(13, 76, 'sehr gut', '2022-02-27 13:57:12', NULL);
-*/
--- --------------------------------------------------------
 
 --
 -- Tabellenstruktur für Tabelle `users`
@@ -70,16 +48,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `passwort`, `created_at`, `updated_a
 --
 -- Indizes der exportierten Tabellen
 --
-/*
---
--- Indizes für die Tabelle `kommentare`
---
-ALTER TABLE `kommentare`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `user_id` (`user_id`);
 
---
-*/
 -- Indizes für die Tabelle `users`
 --
 ALTER TABLE `users`
@@ -87,32 +56,12 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- AUTO_INCREMENT für exportierte Tabellen
---
-/*
---
--- AUTO_INCREMENT für Tabelle `kommentare`
---
-ALTER TABLE `kommentare`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-*/
---
 -- AUTO_INCREMENT für Tabelle `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
--- Constraints der exportierten Tabellen
---
-/*
---
--- Constraints der Tabelle `kommentare`
---
-ALTER TABLE `kommentare`
-  ADD CONSTRAINT `kommentare_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
-COMMIT;
-*/
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
