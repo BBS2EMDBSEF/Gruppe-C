@@ -1,0 +1,226 @@
+@media screen and (max-width:700px){
+  /*nav*/
+  nav ul{
+    display:block;
+  }
+  nav li ul{
+    position:static;
+  }
+    nav li{margin:3px;}
+    nav li li{
+      padding-left:50px;
+    }
+    .sub:before{border:0;}
+    .sub li a:before{
+      content:" " " " " ";
+      font-size:70%;
+      float:left;
+      padding-top:2%;
+      padding-right:5px;
+      padding-left:7px;
+      position:relative;
+      left:-26px;
+    }
+  nav>ul{
+    display:none;
+    }
+  .open{display:block;}
+  .open:target ~ ul{display:block;}
+  .open:target{display:none;}
+  .open:target~.close{display:block;}
+
+  .open, .close{
+    width:2em;
+    height:1.5em;
+    overflow:hidden;
+    margin-left:auto;
+    transition:all 1s;
+    color:#339fdd;
+  }
+  .close:hover,.close:hover{
+    color:#226388;
+    font-weight: bold;
+  }  
+  .open:hover,.open:hover{
+    color:#226388;
+    width: 60px;
+  }  
+  .open:before{
+    content:"";
+    border-top:5px solid;
+    border-bottom:double 14px;
+    margin-top: 5px;
+    display:inline-block;
+    width:80%;
+    padding:4px 0 0;
+  }
+  .close:before{
+    content:"x";
+    display:inline-block;
+    width:80%;
+    margin-top: 10px;
+    text-transform:capitalize;
+    font-size:40px;
+    line-height:22px;  
+    font-family:Arial, Helvetica, sans-serif;
+  }
+  .open:target ~  .resp-menu,
+  .resp-menu{
+    max-height:0px;
+    overflow:hidden;
+    transition: max-height .6s ease-in-out, border 0.2s ease, transform 0.6s; 
+    width:auto;
+    border:0 solid;
+    transform:scale(0.95);
+    display:block;
+  } 
+  .open:target ~  .resp-menu{
+    max-height:50em;
+    transition: all 1.5s ease-in-out, border 0.2s ease;
+    border-top:8px solid #f3f3f3;
+    transform:scale(1);
+  }
+  nav .sub:hover ul,  nav .sub:focus-within ul{
+    width:100%; 
+  }
+
+  .sub:before{
+  content:"";
+  border:10px solid transparent;
+  border-top-color:inherit;
+  border-bottom:none;
+  display:table;
+  position:absolute;
+  right:20px;
+  top:12.5px;
+  color:#1e4a64 ;
+  }
+  
+  nav li ul{
+    display: none;
+  }
+  nav li:hover ul,nav li:focus-within ul{
+    display: block;
+  }
+
+  nav{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    margin:0;
+    background:#f3f3f3; 
+  }
+  /*home*/
+  .foto{
+    display: flex;
+  }
+  /*footer*/
+  footer{
+    width: 100%;
+  }
+  footer a{
+    text-align: center; 
+  }
+  .container-leistungen div img{
+    width: 90%;
+  }
+  .registerForm fieldset{
+    margin-left: 0px;
+  }
+  .registerForm fieldset input{
+    width: 96%;
+  }
+  body{
+    padding-top:54px;
+  }
+  .logo{margin-left: 40%;}
+  header{
+    width: 100%;
+  }
+}/*ende @media*/
+
+@media screen and (max-width:400px) {
+  .container-oeffnungszeiten .bild1 img{
+   width: 90%;
+  }
+  header{
+    width: 100%;
+  }
+  footer a{
+    font-size: 10px;
+  }
+  footer a:hover,footer a:focus-within{
+    font-size: 14px;
+  }
+} /*ende @media*/
+@media screen and (max-width:300px){
+  .container-team div{
+    display: flex; 
+    width: 90%;
+  }  
+  header .logo img{
+    width:auto;
+  }
+  .logo img:hover,.logo img:focus-within {
+    width: 140px;
+    transition: all .5s ease-in-out, border 0.2s ease;
+  }
+}/*ende @media*/
+@media screen and (max-width:250px){
+  nav li li {
+    padding-left: 20px;
+  }
+  footer {
+    width: 100%;
+  }  
+  footer a{
+    margin-left:50px ;
+  }
+}/*ende @media*/
+@media screen and (max-width:200px){
+  .logo{
+    margin-left: 0;
+  }
+ .container-team div{
+   display: flex;
+   width: 90%;
+   margin-left: 4px;
+ }
+ .container-team div span{
+  display: flex;
+  font-size: 10px;
+ }
+ .sub:before{
+  content:"";
+  border:8px solid transparent;
+  border-top-color:inherit;
+  border-bottom:none;
+  display:table;
+  position:absolute;
+  right:8px;
+  top:12.5px;
+  color:#1e4a64 ;
+  }
+  nav li a{
+    font-size: 15px;
+  }
+  .container-leistungen .ul-leistung{
+    display: flex;
+    width: 90%;
+  }
+  .container-leistungen .ul-leistung ul,.container-leistungen .ul-leistung ul li{
+    font-size: 90%;
+  }
+  .registerForm fieldset input{
+    width: 90%;
+  }
+  
+
+  
+  
+  
+ 
+}/*ende @media*/
+
+

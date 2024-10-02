@@ -1,0 +1,494 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing:inherit;
+}
+
+:root {
+  --bg-color:#f3f3f3;
+  --white: #fff;
+	--black: #000;
+  --dark: #333;
+  --gray-blue: #96a1c0;
+  --primary: #007bff;
+  --secondary: #6c757d;
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #e3d93d;
+  --danger: #b21f2d;
+	--purple: #AB82FF;
+	--green: #1baa3c; 
+}
+
+html{
+  box-sizing:content-box;
+}
+body{
+  font-family:"Bell MT";  
+  font-size:100.1%;
+  background-color:var(--bg-color);
+  color:#1e4a64;
+} 
+
+#container {
+    max-width:1025px;
+    margin:0 auto;
+}
+
+header{
+    background-color:white;
+    border: 1px solid #339fdd;
+    background-image: linear-gradient(to left, #a6d8f5,white,white,#a6d8f5  );
+}
+
+.logo{margin-left: 45%;}
+header img:hover,header img:focus-within{
+  width: 200px;
+  transition: all .5s ease-in-out, border 0.2s ease;
+}
+/* nav */
+nav {background:#6f93a8;}
+nav ul{margin:0;padding:0;list-style:none;}
+nav>ul{display:flex;}
+nav li{
+      margin:1px 2px 2px 2px;
+      background:#ccc;
+      flex:1 1 auto;
+      color:#1e4a64;
+}
+nav li li{
+      padding:2px;
+      border:2px solid #6f93a8 ;
+}
+
+.sub li a{font-size: 15px;}
+
+nav a{display:block;
+    padding:5px 1em;
+    margin: 0 10px;
+    color:inherit;
+    text-decoration:none;
+    font-size: 20px;
+}
+nav li:hover,nav li:focus-within {
+    background:#339fdd;
+    color:white;
+    transition: all .5s ease-in-out, border 0.2s ease;
+}
+
+.sub{position:relative;}
+
+nav .sub:hover ul,  nav .sub:focus-within ul{width:100%;}
+.sub:before{
+      content:"";
+      border:9px solid transparent;
+      border-top-color:inherit;
+      border-bottom:none;
+      display:table;
+      position:absolute;
+      right:10px;
+      top:12.5px;
+}
+
+.sub:before,.sub:hover:before,.sub:focus:before{
+  border-top-color:inherit;
+}
+nav li ul{
+      position:absolute;
+      left:-9999em;
+}
+nav .sub #liKommentar a{
+  font-size:12px ;
+}
+nav li:hover ul,nav li:focus-within ul{
+      left:auto; 
+}
+nav .active
+{
+  background:#339fdd;
+  color:white;
+  margin: 0;
+}
+nav .sub li a{
+  font-size: 13px;
+}
+/*.active .sub,
+body nav .sub .active[title=Kontakt]
+{
+  background:#339fdd;
+  color:white;
+  margin: 0;
+}*/
+.open,.close{display:none;}
+
+/* user_menue */
+
+
+.userMenue {
+  border:2px solid #6f93a8 ;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  background:#a6d8f5 ;
+  padding-left: 4px;
+}
+.userMenue ul{
+  list-style: none;
+}
+.userMenue li a{
+  text-decoration:none;
+  color:#1e4a64;
+}
+.userMenue p{
+  color:#1e4a64;
+}
+
+.userMenue li:hover,.userMenue li:focus-within {
+  background:#339fdd;
+  transition: all .5s ease-in-out, border 0.2s ease;
+  margin-left: -4px;
+}
+.userMenue li a:hover,.userMenue li a:focus-within{
+  color:white;
+}
+.userMenue p em{
+  font-weight: bold;
+}
+
+.userMenue ul .active{
+  background:#339fdd;
+  margin-left:-4px;
+  padding-left: 4px;
+}
+.userMenue ul .active a{
+  color: white;
+}
+/* login */
+.loginForm {
+  border:2px solid #6f93a8 ;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  background:#a6d8f5 ;
+  padding-left: 4px;
+}
+.loginForm p a{
+  border:1px solid #28a745;
+  text-decoration: none;
+  background:rgb(118, 190, 118);
+  padding: 2px;
+  color: white;
+}
+.loginForm p{
+  margin-top: 4px;
+  margin-bottom: 4px;
+
+}
+.loginForm p a:hover, .loginForm p a:focus-within{
+  background: #28a745;
+  transition: all .5s ease-in-out, border 0.2s ease;
+  font-weight: bold;
+}
+/*
+.loginForm p .active a{
+  background:rgb(118, 190, 118);
+}
+*/
+.loginForm .subLoggin{
+  background: #33d7dd;
+  border:1px solid #1e4a64 ;
+  padding: 2px;
+}
+.loginForm .subLoggin:hover, .loginForm .subLoggin:focus-within{
+  transition: all .5s ease-in-out, border 0.2s ease;
+  font-weight: bold;
+  color: white;
+}
+/* msg */
+.msg{
+  background: rgb(184, 56, 6);
+  color: white;
+  padding-top: 2px ;
+  padding-left: 4px;
+  margin-top: 2px;
+}
+/*register_form*/
+.registerForm{
+  width: 100%;
+  position: relative;
+}
+
+.registerForm div{
+  position: absolute;
+  margin-left: 55%;
+  margin-top: 40px;
+}
+
+.registrierung fieldset {
+  width: 50%;
+	padding: 5px;
+	margin-bottom: 15px;
+  margin-left: 270px;
+  margin-top: 15px;
+}
+
+.registrierung fieldset:nth-of-type(1) {
+	border:2px solid #6f93a8 ;
+}
+
+.registrierung fieldset:nth-of-type(1) legend{
+  border:1px solid #6f93a8 ;
+  background: #339fdd;
+  font-weight: bold;
+  color: #1e4a64 ;
+  padding: 2px;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.registrierung input, .registrierung textarea {
+	width: 98%;
+	padding: 5px;
+}
+
+
+.error {
+	background-color: rgb(184, 56, 6) ;
+	color: #fff;
+	padding: 5px;
+	display: inline-block;
+	margin-bottom: 3px;
+}
+.registerForm form .submit{
+  background: rgb(118, 190, 118);
+  font-weight: bold;
+  color:#1e4a64 ;
+  font-size: 16px;
+}
+.registerForm form .submit:hover,.registerForm form .submit:focus-within{
+  background: #28a745;
+  transition: all .5s ease-in-out, border 0.2s ease;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+#geschlechtSelect{
+  color: #1e4a64;
+}
+#geschlechtSelect option{
+  color: #1e4a64;
+  padding: 2px;
+}
+#warenByUns {
+  font-size: 16px;
+  margin-bottom: 4px;
+  border: 1px solid gray;
+  background: white;
+}
+#warenByUns input {
+	width: 40px;
+}
+#wunschtag input{
+  width: 30px;
+  margin-top: 3px;
+}
+#wunschtag {
+  font-size: 14px;
+  margin-bottom: 4px;
+  border: 1px solid gray;
+  background: white;
+}
+/* profil */
+.profil {
+  text-align: center;
+  border: 2px solid #6f93a8;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.profil p{
+  margin-top: 8px;
+  font-size: 20px;
+}
+.profil .btn .edit{
+  background: rgb(118, 190, 118);
+  border: 2px solid #28a745;
+  padding: 4px;
+  text-decoration: none;
+  color: white;
+}
+.profil .btn .edit:hover,.profil .btn .edit:focus-within{
+  background: #28a745;
+  transition: all .5s ease-in-out, border 0.2s ease;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+.profil .btn .delete{
+  background: rgb(211, 98, 70) ;
+  border: 2px solid rgb(184, 56, 6) ;
+  padding: 4px;
+  text-decoration: none;
+  color: white;
+  margin-left: 10px;
+}
+.profil .btn .delete:hover,.profil .btn .delete:focus-within{
+  background: rgb(184, 56, 6);
+  transition: all .5s ease-in-out, border 0.2s ease;
+  text-decoration: none;
+  font-weight: bold;
+}
+.profil form .delete{
+  background: rgb(184, 56, 6);
+  padding: 4px;
+  color: white;
+}
+.profil form .delete:hover,.profil form .delete:focus-within{
+  background: rgb(184, 56, 6);
+  transition: all .5s ease-in-out, border 0.2s ease;
+  text-decoration: none;
+  font-weight: bold;
+}
+.profil form .abrechen{
+  background: #339fdd;
+  padding: 4px;
+}
+.profil form .abrechen a{
+  text-decoration: none;
+  color: white;
+}
+.profil form .abrechen:hover,.profil form .abrechen:focus-within{
+  background: #225b7c;
+  transition: all .5s ease-in-out, border 0.2s ease;
+  text-decoration: none;
+  font-weight: bold;
+}
+.profil .btn{
+  margin-bottom: 10px;
+}
+/* kommentaren */
+.h1Kommentare{
+  text-align: center;
+  margin-top: 15px;
+}
+#kommentare fieldset{
+  margin-left: 25%;
+}
+#kommentare fieldset legend{
+  padding: 4px;
+  background:#96c2db ;
+}
+.patientenKommentaren{
+  border: 2px solid #339fdd;
+  padding: 10px;
+  margin:10px 50px 10px 50px;
+}
+.kommentaren{
+  border: 2px solid #6f93a8;
+  margin-bottom: 10px;
+  padding: 8px;
+  background: #ccc;
+}
+#kommentarSchicken {
+  width: 20%;
+  margin-left:40% ;
+  background: rgb(118, 190, 118);
+  border: 2px solid #28a745;
+  color: white;
+  font-size: 18px;
+}
+#kommentarSchicken:hover,.profil form #kommentarSchicken:focus-within{
+  background:  #28a745;
+  transition: all .5s ease-in-out, border 0.2s ease;
+  font-weight: bold;
+}
+/*unsere team*/
+.container-team{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  margin-bottom:40px ;
+}
+.container-team div {
+  margin-left: 30px;
+}
+.container-team div span{
+  font-size: 20px;
+}
+/* unsere Leistungen */
+
+.container-leistungen{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  padding-left: 25px;
+  margin-bottom: 40px;
+}
+.container-leistungen .ul-leistung{
+  margin-top: 20px;
+}
+.container-leistungen ul{
+  margin-top: 20px;
+}
+.container-leistungen li{
+  margin-left: 30px;
+  font-size: 18px;
+}
+.container-leistungen .bild-leistungen{
+  margin-left: 30px;
+}
+/*oeffningazeiten*/
+.container-oeffnungszeiten{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  padding-left: 40px;
+  margin-bottom: 40px;
+}
+.container-oeffnungszeiten ul{
+  margin-top: 20px;
+}
+.container-oeffnungszeiten li{
+  margin-left: 30px;
+  font-size: 18px;
+  list-style: none;
+}
+.container-oeffnungszeiten .bild1{
+  margin-left: 30px;
+  margin-top: 20px;
+}
+
+
+
+  /* main */
+
+main .text{
+    text-align: center;
+    color:#1e4a64 ;
+    width: 70%;
+    margin-left: 15%;
+}
+main p {
+  margin-bottom: 1rem;
+  font-size: 18px;
+}
+    
+footer{
+    border: 1px solid #339fdd;
+    height: 30px;
+    background-image: linear-gradient(to left, #a6d8f5,white,white,#a6d8f5  );
+    padding-top: 5px ;
+}
+footer a{
+    margin-left: 45%;
+    text-decoration: none;
+    color: #1e4a64;
+}
+footer a:hover,footer a:focus-within{
+  font-size:20px ;
+  transition: all .5s ease-in-out, border 0.2s ease;
+}
+
+

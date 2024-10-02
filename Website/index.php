@@ -25,4 +25,3 @@ switch($page) {
 }
 
 require_once 'inc/footer.inc.php';
-

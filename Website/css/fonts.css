@@ -1,0 +1,12 @@
+@font-face{ 
+font-family:'Bell MT'; /* Schriftnamen deklarieren*/
+src:url('../fonts/BellMT.eot'); 
+/*src:local('schriftname') erlaubt den localen Aufruf auch ohne http/(s)-request */
+src:local('Bell MT'),
+url('../fonts/BellMT.eot?#iefix') format('fonts/embedded-opentype'),
+url('../fonts/BellMT.woff') format('woff'),
+url('../fonts/BellMT.ttf') format('truetype'),
+url('../fonts/BellMT.svg#Bell MT') format('svg');
+font-weight:normal;
+font-style:normal; 	
+} 

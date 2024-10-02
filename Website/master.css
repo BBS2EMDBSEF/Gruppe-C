@@ -1,0 +1,27 @@
+fieldset{
+    padding-top: 30px;
+    background: #c7c7ec;
+    width: 50%;
+}
+#submit{
+  margin-left: 30%;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  height: 50px;
+  width: 200px;
+  font-size: large;
+}
+#submit:hover{
+    background: #8aa5ec;
+    color: white;
+}
+input{
+    width: 70%;
+    height: 50px;
+}
+input:hover{
+    background: lightgray;
+}
+.fna
+
+
