@@ -6,7 +6,7 @@ $daten = $st->fetch();
 ?>
 
 <article class="profil">
-  <h2 class="header"><?= $daten['name'] ?></h2>
+  <h2 class="header"><?= $daten['nachname'] ?></h2>
 
   <p class="datum">Sie sind angemeldet seit: <?= formatiereDatum($daten['created_at']) ?></p>
 

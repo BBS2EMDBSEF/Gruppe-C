@@ -1,9 +1,9 @@
 <div class="registerForm">
 
-  <form action="inc/registrierung.php" method="post" class="registrierung" id="register">
+  <form action="inc/bearbeiten.php" method="post" class="registrierung" id="register">
   
       <fieldset>
-        <legend>Registrierung</legend>
+        <legend>Bearbeiten</legend>
 
           <label for="geschlecht">Geschlecht</label>
           <select name="geschlecht" id="geschlecht">
@@ -31,7 +31,7 @@
           <input type="radio" name="janein" value="Nein" class="janein" />Nein
           </p> 
 
-          <label for="wunschtag">welche Tage passt Ihnen für einen Termin?</label>
+          <label for="wunschtag">welche Tage pass das bei Ihnen zu uns kommen?</label>
           <p id="wunschtag">
 			      <input type="checkbox" name="wunschtag" value="Montag" /> Montag
 			      <input type="checkbox" name="wunschtag" value="Dienstag" /> Dienstag

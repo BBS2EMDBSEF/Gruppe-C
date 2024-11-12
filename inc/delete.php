@@ -10,7 +10,7 @@ if( !empty($_POST) && $_POST['csrf_token'] === $_SESSION['token']) {
   $sql = 'DELETE FROM users WHERE id = ? ';
   $statement = $db->prepare($sql);
   $statement->execute([$id]);
-  session_destroy();
+  loggeAus();
   $_SESSION['meldung'] = 'account wurde gelöscht';
 }
 

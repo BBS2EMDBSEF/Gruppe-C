@@ -4,8 +4,9 @@ session_start();
 require_once 'datenbank.inc.php';
 require_once 'funktionen.inc.php';
 
-$mail = isset($_POST['email']) ? $_POST['email'] : '';
-$pwd = isset($_POST['pwd']) ? $_POST['pwd'] : '';
+$mail = bereinige($_POST['mail']);
+$pwd = bereinige($_POST['pwd']);
+
 
 if( !empty($mail) && !empty($pwd)) {
   $sql = 'SELECT * FROM users WHERE email = ?';
@@ -15,7 +16,7 @@ if( !empty($mail) && !empty($pwd)) {
   
   if($user && password_verify($pwd, $user['passwort'])) {
     $_SESSION['eingeloggt'] = $user['email'];
-    $_SESSION['eingeloggt_user'] = $user['name'];
+    $_SESSION['eingeloggt_user'] = $user['nachname'];
     $_SESSION['id'] = $user['id'];
   } 
   else {

@@ -1,28 +1,25 @@
 <?php
-setlocale(LC_ALL, "de_DE", "deu_deu", "german");
 
-function formatiereDatum($dbDatum, $format = 'EEEE, dd.MM.yyyy HH:mm:ss')
+setlocale(LC_ALL, "de_DE", "deu_deu","german");
+function formatiereDatum($dbDatum, $format = '%A, %d.%m.%Y %H:%M:%S')
 {
-    $datum = new DateTime($dbDatum);
-    $formatter = new IntlDateFormatter(
-        'de_DE',                // Deutsche Lokalisierung
-        IntlDateFormatter::FULL, // Datumslänge (kann angepasst werden)
-        IntlDateFormatter::FULL  // Zeitlänge (kann angepasst werden)
-    );
-    
-    // Setzt das benutzerdefinierte Format
-    $formatter->setPattern($format);
-    
-    return $formatter->format($datum);
+	return utf8_encode( strftime($format, strtotime($dbDatum)) );
 }
-
-
 //formatiereDatum(meineSpalteAusTabelle[created_at])
 //---------------------------------------------
 function insertDatum($wert) {
-  return date('Y-m-d', strtotime($wert));
+  return utf8_encode( strftime('%Y-%m-%d', strtotime($wert)) );
 }
+//insertDatum(meineSpalteAusTabelle[geburtstag])
+//---------------------------------------------
 
+
+function bereinige($userEingabe, $encoding = 'UTF-8') {
+  return htmlspecialchars(
+                        strip_tags(trim($userEingabe)), 
+                        ENT_QUOTES | ENT_HTML5, 
+                        $encoding);
+}
 
 
 function redirect($url) {

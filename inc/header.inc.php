@@ -3,7 +3,6 @@
 <head>
 	<meta charset="utf-8" />
 	<title>PHP-Projekt</title>
-	
 	<script src="jquery/jquery-3.6.0.js"></script>
 	<script src="jquery/jquery-ui.min.js"></script>
 	<script src="js/index.js"></script>
@@ -19,7 +18,7 @@
 <body>
 <div id="container">
 <header>
-
+<a class="logo" href="index.php?page=home"><img src="img/logo.jpg" alt="" width="150" height="80"></a>
 </header>
 
 <!--++++++++++-->
@@ -31,13 +30,32 @@
 
   <ul class="resp-menu">
 
-	<li class="<?= empty($page) ? 'active' : ''; ?>">
+	  <li class="<?= empty($page) ? 'active' : ''; ?>">
 		  <a href="index.php" title="Home">HOME</a>
-	</li>
+	  </li>
 
-	<li id="liRegister" class="<?php echo ($page === 'registrierung') ? 'active' : ''; ?>">
+	  <li class="<?php echo ($page === 'unsereTeam') ? 'active' : ''; ?>">
+		  <a href="index.php?page=unsereTeam" title="UnsereTeam">UNSERE TEAM</a>
+	  </li>
+
+	  <li class="<?= ($page === 'unsereLeistungen') ? 'active' : ''; ?>">
+		  <a href="index.php?page=unsereLeistungen" title="UnsereLeistungen">UNSERE LEISTUNGEN</a>
+	  </li>
+
+		<li id="liRegister" class="<?php echo ($page === 'registrierung') ? 'active' : ''; ?>">
 		      <a href="index.php?page=registrierung">REGISTRIERUNG</a>
-	</li>
+	  </li>
+
+	  <li class="sub"><a class="sub1" href="" title="Kontakt">KONTAKT</a>
+			<ul>
+		  	<li id="liOeffnungszeiten" class="<?= ($page === 'oeffnungszeiten') ? 'active' : ''; ?>">
+		      <a href="index.php?page=oeffnungszeiten">ÖFFNUNGSZEITEN</a>
+	      </li>
+	      <li id="liKommentar" class="<?php echo ($page === 'kommentare') ? 'active' : ''; ?>">
+		      <a href="index.php?page=kommentare">PATIENTEN KOMMENTARE</a>
+	      </li>
+			</ul>
+	  </li>
 
   </ul>
 </nav>
@@ -54,7 +72,6 @@ else:
 	require_once 'inc/login_form.inc.php';
 endif;
 ?>
-
 
 
 
