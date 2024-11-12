@@ -117,13 +117,6 @@ nav .active
 nav .sub li a{
   font-size: 13px;
 }
-/*.active .sub,
-body nav .sub .active[title=Kontakt]
-{
-  background:#339fdd;
-  color:white;
-  margin: 0;
-}*/
 .open,.close{display:none;}
 
 /* user_menue */
@@ -275,13 +268,6 @@ body nav .sub .active[title=Kontakt]
   text-decoration: none;
   font-weight: bold;
 }
-#geschlechtSelect{
-  color: #1e4a64;
-}
-#geschlechtSelect option{
-  color: #1e4a64;
-  padding: 2px;
-}
 #warenByUns {
   font-size: 16px;
   margin-bottom: 4px;
@@ -290,16 +276,6 @@ body nav .sub .active[title=Kontakt]
 }
 #warenByUns input {
 	width: 40px;
-}
-#wunschtag input{
-  width: 30px;
-  margin-top: 3px;
-}
-#wunschtag {
-  font-size: 14px;
-  margin-bottom: 4px;
-  border: 1px solid gray;
-  background: white;
 }
 /* profil */
 .profil {
@@ -368,99 +344,6 @@ body nav .sub .active[title=Kontakt]
 .profil .btn{
   margin-bottom: 10px;
 }
-/* kommentaren */
-.h1Kommentare{
-  text-align: center;
-  margin-top: 15px;
-}
-#kommentare fieldset{
-  margin-left: 25%;
-}
-#kommentare fieldset legend{
-  padding: 4px;
-  background:#96c2db ;
-}
-.patientenKommentaren{
-  border: 2px solid #339fdd;
-  padding: 10px;
-  margin:10px 50px 10px 50px;
-}
-.kommentaren{
-  border: 2px solid #6f93a8;
-  margin-bottom: 10px;
-  padding: 8px;
-  background: #ccc;
-}
-#kommentarSchicken {
-  width: 20%;
-  margin-left:40% ;
-  background: rgb(118, 190, 118);
-  border: 2px solid #28a745;
-  color: white;
-  font-size: 18px;
-}
-#kommentarSchicken:hover,.profil form #kommentarSchicken:focus-within{
-  background:  #28a745;
-  transition: all .5s ease-in-out, border 0.2s ease;
-  font-weight: bold;
-}
-/*unsere team*/
-.container-team{
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 40px;
-  margin-bottom:40px ;
-}
-.container-team div {
-  margin-left: 30px;
-}
-.container-team div span{
-  font-size: 20px;
-}
-/* unsere Leistungen */
-
-.container-leistungen{
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 40px;
-  padding-left: 25px;
-  margin-bottom: 40px;
-}
-.container-leistungen .ul-leistung{
-  margin-top: 20px;
-}
-.container-leistungen ul{
-  margin-top: 20px;
-}
-.container-leistungen li{
-  margin-left: 30px;
-  font-size: 18px;
-}
-.container-leistungen .bild-leistungen{
-  margin-left: 30px;
-}
-/*oeffningazeiten*/
-.container-oeffnungszeiten{
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 40px;
-  padding-left: 40px;
-  margin-bottom: 40px;
-}
-.container-oeffnungszeiten ul{
-  margin-top: 20px;
-}
-.container-oeffnungszeiten li{
-  margin-left: 30px;
-  font-size: 18px;
-  list-style: none;
-}
-.container-oeffnungszeiten .bild1{
-  margin-left: 30px;
-  margin-top: 20px;
-}
-
-
 
   /* main */
 

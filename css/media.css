@@ -122,9 +122,6 @@
   footer a{
     text-align: center; 
   }
-  .container-leistungen div img{
-    width: 90%;
-  }
   .registerForm fieldset{
     margin-left: 0px;
   }
@@ -141,9 +138,6 @@
 }/*ende @media*/
 
 @media screen and (max-width:400px) {
-  .container-oeffnungszeiten .bild1 img{
-   width: 90%;
-  }
   header{
     width: 100%;
   }
@@ -177,12 +171,6 @@
   footer a{
     margin-left:50px ;
   }
-  .kommentaren p{
-    font-size: 13px;
-  }
-  .patientenKommentaren h2{
-    font-size: 15px;
-  }
 }/*ende @media*/
 @media screen and (max-width:200px){
   .logo{
@@ -210,13 +198,6 @@
   }
   nav li a{
     font-size: 15px;
-  }
-  .container-leistungen .ul-leistung{
-    display: flex;
-    width: 90%;
-  }
-  .container-leistungen .ul-leistung ul,.container-leistungen .ul-leistung ul li{
-    font-size: 90%;
   }
   .registerForm fieldset input{
     width: 90%;
