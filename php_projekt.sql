@@ -22,27 +22,6 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `php_projekt` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `php_projekt`;
--- --------------------------------------------------------
-
---
--- Tabellenstruktur für Tabelle `kommentare`
---
-
-CREATE TABLE `kommentare` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `user_id` int(10) UNSIGNED DEFAULT NULL,
-  `post` text NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Daten für Tabelle `kommentare`
---
-
-INSERT INTO `kommentare` (`id`, `user_id`, `post`, `created_at`, `updated_at`) VALUES
-(12, 75, 'hallo dankeschön', '2022-02-27 11:49:07', NULL),
-(13, 76, 'sehr gut', '2022-02-27 13:57:12', NULL);
 
 -- --------------------------------------------------------
 
@@ -52,38 +31,26 @@ INSERT INTO `kommentare` (`id`, `user_id`, `post`, `created_at`, `updated_at`) V
 
 CREATE TABLE `users` (
   `id` int(10) UNSIGNED NOT NULL,
-  `geschlecht` varchar(255) NOT NULL,
   `nachname` varchar(255) NOT NULL,
   `vorname` varchar(255) NOT NULL,
-  `geburtstag` date DEFAULT NULL,
-  `telefon` int(10) DEFAULT NULL,
-  `janein` varchar(255) DEFAULT NULL,
-  `wunschtag` varchar(500) DEFAULT NULL,
   `email` varchar(255) NOT NULL,
-  `passwort` varchar(255) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `passwort` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Daten für Tabelle `users`
 --
 
-INSERT INTO `users` (`id`, `geschlecht`, `nachname`, `vorname`, `geburtstag`, `telefon`, `janein`, `wunschtag`, `email`, `passwort`, `created_at`, `updated_at`) VALUES
-(75, 'frau', 'Borna', 'Ghazaleh', '2022-02-07', 49, 'Nein', 'Donnerstag', 'borna@borna.de', '$2y$10$mJ75vpei0M2ElJDZMwEOhu2LUu3Ng8MEHQPBqCXA5CRegaCnkeF0K', '2022-02-27 11:47:19', NULL),
-(76, 'herr', 'admin', 'admin', '2022-02-18', 49, 'Ja', 'Mittwoch', 'admin@admin.de', '$2y$10$0bKqPZ80Uokt8Y8bTjKroup6rQGYO6PBMi8RbqaOa7B6SEClO7T7.', '2022-02-27 13:50:01', NULL);
+INSERT INTO `users` (`id`, `nachname`, `vorname`, `email`, `passwort`) VALUES
+(75, 'Borna', 'Ghazaleh', 'borna@borna.de', '$2y$10$mJ75vpei0M2ElJDZMwEOhu2LUu3Ng8MEHQPBqCXA5CRegaCnkeF0K'),
+(76, 'admin', 'admin', 'admin@admin.de', '$2y$10$0bKqPZ80Uokt8Y8bTjKroup6rQGYO6PBMi8RbqaOa7B6SEClO7T7.');
 
 --
 -- Indizes der exportierten Tabellen
 --
 
 --
--- Indizes für die Tabelle `kommentare`
---
-ALTER TABLE `kommentare`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `user_id` (`user_id`);
-
+-- Indizes für die Tabelle ``
 --
 -- Indizes für die Tabelle `users`
 --
@@ -94,13 +61,6 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT für exportierte Tabellen
 --
-
---
--- AUTO_INCREMENT für Tabelle `kommentare`
---
-ALTER TABLE `kommentare`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
 --
 -- AUTO_INCREMENT für Tabelle `users`
 --
@@ -112,11 +72,7 @@ ALTER TABLE `users`
 --
 
 --
--- Constraints der Tabelle `kommentare`
---
-ALTER TABLE `kommentare`
-  ADD CONSTRAINT `kommentare_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
-COMMIT;
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
