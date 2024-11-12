@@ -46,7 +46,7 @@ header{
     background-image: linear-gradient(to left, #a6d8f5,white,white,#a6d8f5  );
 }
 
-.logo{margin-left: 45%;}
+.logo{margin-left: 40%;}
 header img:hover,header img:focus-within{
   width: 200px;
   transition: all .5s ease-in-out, border 0.2s ease;
@@ -277,32 +277,22 @@ nav .sub li a{
 #warenByUns input {
 	width: 40px;
 }
-/* profil */
-.profil {
-  text-align: center;
-  border: 2px solid #6f93a8;
-  margin-bottom: 10px;
-  margin-top: 10px;
-}
-.profil p{
-  margin-top: 8px;
-  font-size: 20px;
-}
-.profil .btn .edit{
+
+.btn .edit{
   background: rgb(118, 190, 118);
   border: 2px solid #28a745;
   padding: 4px;
   text-decoration: none;
   color: white;
 }
-.profil .btn .edit:hover,.profil .btn .edit:focus-within{
+.btn .edit:hover,.btn .edit:focus-within{
   background: #28a745;
   transition: all .5s ease-in-out, border 0.2s ease;
   color: white;
   text-decoration: none;
   font-weight: bold;
 }
-.profil .btn .delete{
+.btn .delete{
   background: rgb(211, 98, 70) ;
   border: 2px solid rgb(184, 56, 6) ;
   padding: 4px;
@@ -310,41 +300,12 @@ nav .sub li a{
   color: white;
   margin-left: 10px;
 }
-.profil .btn .delete:hover,.profil .btn .delete:focus-within{
+.btn .delete:hover,.btn .delete:focus-within{
   background: rgb(184, 56, 6);
   transition: all .5s ease-in-out, border 0.2s ease;
   text-decoration: none;
   font-weight: bold;
 }
-.profil form .delete{
-  background: rgb(184, 56, 6);
-  padding: 4px;
-  color: white;
-}
-.profil form .delete:hover,.profil form .delete:focus-within{
-  background: rgb(184, 56, 6);
-  transition: all .5s ease-in-out, border 0.2s ease;
-  text-decoration: none;
-  font-weight: bold;
-}
-.profil form .abrechen{
-  background: #339fdd;
-  padding: 4px;
-}
-.profil form .abrechen a{
-  text-decoration: none;
-  color: white;
-}
-.profil form .abrechen:hover,.profil form .abrechen:focus-within{
-  background: #225b7c;
-  transition: all .5s ease-in-out, border 0.2s ease;
-  text-decoration: none;
-  font-weight: bold;
-}
-.profil .btn{
-  margin-bottom: 10px;
-}
-
   /* main */
 
 main .text{
@@ -364,14 +325,11 @@ footer{
     background-image: linear-gradient(to left, #a6d8f5,white,white,#a6d8f5  );
     padding-top: 5px ;
 }
-footer a{
+footer p{
     margin-left: 45%;
     text-decoration: none;
     color: #1e4a64;
 }
-footer a:hover,footer a:focus-within{
-  font-size:20px ;
-  transition: all .5s ease-in-out, border 0.2s ease;
-}
+
 
 
