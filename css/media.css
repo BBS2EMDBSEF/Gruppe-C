@@ -177,6 +177,12 @@
   footer a{
     margin-left:50px ;
   }
+  .kommentaren p{
+    font-size: 13px;
+  }
+  .patientenKommentaren h2{
+    font-size: 15px;
+  }
 }/*ende @media*/
 @media screen and (max-width:200px){
   .logo{
