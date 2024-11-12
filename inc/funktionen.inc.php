@@ -17,5 +17,5 @@ function loggeAus() {
   unset($_SESSION['eingeloggt']);
   unset($_SESSION['eingeloggt_user']);
   unset($_SESSION['id']);
-  unset($_SESSION['token']);
+  //unset($_SESSION['token']);
 }

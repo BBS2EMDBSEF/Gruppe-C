@@ -3,9 +3,7 @@
 <head>
 	<meta charset="utf-8" />
 	<title>PHP-Projekt</title>
-	<script src="jquery/jquery-3.6.0.js"></script>
-	<script src="jquery/jquery-ui.min.js"></script>
-	<script src="js/index.js"></script>
+	
  
 	<style>
 	<?php
@@ -18,7 +16,7 @@
 <body>
 <div id="container">
 <header>
-<a class="logo" href="index.php?page=home"><img src="img/logo.jpg" alt="" width="150" height="80"></a>
+<a class="logo" href="index.php?page=home"><img src="img/logo.png" alt="" width="150" height="100"></a>
 </header>
 
 <!--++++++++++-->

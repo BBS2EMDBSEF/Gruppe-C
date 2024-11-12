@@ -1,5 +1,5 @@
 <?php 
-
+/*
 session_start();
 require_once 'datenbank.inc.php';
 require_once 'funktionen.inc.php';
@@ -15,3 +15,4 @@ if( !empty($_POST) && $_POST['csrf_token'] === $_SESSION['token']) {
 }
 
 redirect('../index.php');
+*/
