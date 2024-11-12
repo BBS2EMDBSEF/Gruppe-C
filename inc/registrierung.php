@@ -5,15 +5,9 @@ session_start();
 require_once 'datenbank.inc.php';
 require_once 'funktionen.inc.php';
 
-$gs = bereinige($_POST['geschlecht']);
 $nn = bereinige($_POST['nachname']);
 $vn = bereinige($_POST['vorname']);
-$geb = insertDatum($_POST['geburtstag']);
-$tel = bereinige($_POST['telefon']);
-$janein = bereinige($_POST['janein']);
 
-
-$wunschtag = bereinige($_POST['wunschtag']);
 
 
 $mail = bereinige($_POST['mail']);
@@ -29,10 +23,10 @@ $user = $statement->fetch();
 
 
 if(!($user)) {
-  $sql = 'INSERT INTO users(geschlecht,nachname,vorname,geburtstag,telefon,janein,wunschtag,email,passwort,created_at)
-                      VALUES(?,?,?,?,?,?,?,?,?, NOW())';
+  $sql = 'INSERT INTO users(nachname,vorname,email,passwort)
+                      VALUES(?,?,?,?)';
   $statement = $db->prepare($sql);
-  $statement->execute([$gs,$nn,$vn,$geb,$tel,$janein,$wunschtag,$mail,$pwd]);  
+  $statement->execute([$nn,$vn,$mail,$pwd]);  
      
   $_SESSION['meldung'] = 'Registrierung erfolgreich, Bitte sich einloggen';
 

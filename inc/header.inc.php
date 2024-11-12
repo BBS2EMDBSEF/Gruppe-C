@@ -34,27 +34,8 @@
 		  <a href="index.php" title="Home">HOME</a>
 	  </li>
 
-	  <li class="<?php echo ($page === 'unsereTeam') ? 'active' : ''; ?>">
-		  <a href="index.php?page=unsereTeam" title="UnsereTeam">UNSERE TEAM</a>
-	  </li>
-
-	  <li class="<?= ($page === 'unsereLeistungen') ? 'active' : ''; ?>">
-		  <a href="index.php?page=unsereLeistungen" title="UnsereLeistungen">UNSERE LEISTUNGEN</a>
-	  </li>
-
 		<li id="liRegister" class="<?php echo ($page === 'registrierung') ? 'active' : ''; ?>">
 		      <a href="index.php?page=registrierung">REGISTRIERUNG</a>
-	  </li>
-
-	  <li class="sub"><a class="sub1" href="" title="Kontakt">KONTAKT</a>
-			<ul>
-		  	<li id="liOeffnungszeiten" class="<?= ($page === 'oeffnungszeiten') ? 'active' : ''; ?>">
-		      <a href="index.php?page=oeffnungszeiten">ÖFFNUNGSZEITEN</a>
-	      </li>
-	      <li id="liKommentar" class="<?php echo ($page === 'kommentare') ? 'active' : ''; ?>">
-		      <a href="index.php?page=kommentare">PATIENTEN KOMMENTARE</a>
-	      </li>
-			</ul>
 	  </li>
 
   </ul>

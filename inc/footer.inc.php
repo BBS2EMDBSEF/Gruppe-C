@@ -3,7 +3,7 @@
 </div> <!--ende container-->
 <!--++++++++++--> 
 <footer>
-<a href="index.php?page=home">ZAHNARZTPRAXIS</a>
+<a href="index.php?page=home">BBS2</a>
 </footer>
 
 </div><!--ende container-->
