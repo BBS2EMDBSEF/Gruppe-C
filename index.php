@@ -19,9 +19,14 @@ $page = $_GET['page'] ?? '';
 require_once 'inc/header.inc.php';
 
 switch($page) {
+	case 'unsereTeam': include 'inc/unsereTeam.inc.php'; break;
+	case 'unsereLeistungen': include 'inc/unsereLeistungen.inc.php'; break;
+	case 'oeffnungszeiten': include 'inc/oeffnungszeiten.inc.php'; break;
 	case 'registrierung': include 'inc/register_form.inc.php'; break;
+	case 'kommentare': include 'inc/kommentare.inc.php'; break;
 	case 'profil': include 'inc/profil.inc.php'; break;
 	default: include 'inc/home.inc.php'; break;
 }
 
 require_once 'inc/footer.inc.php';
+
