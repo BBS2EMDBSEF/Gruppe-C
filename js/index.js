@@ -1,13 +1,5 @@
 "use strict";
 
-jQuery(document).ready(function() {
-
-  //---------------------------------
-  function createElement(element) {
-    let msg = "<span style='text-transform: capitalize;'>"+$(element).attr("name")+"</span>";
-    $(element).before("<strong class='error'>"+msg+" ist ein Pflichtfeld</strong>");
-    $(element).focus();
-  }
   //--------------------------------- 
   $("#register").submit(function(event) {
 				
@@ -54,4 +46,4 @@ jQuery(document).ready(function() {
   });
 	
 
-});//ende ready
+//ende ready
