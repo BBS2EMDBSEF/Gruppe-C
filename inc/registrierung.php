@@ -6,7 +6,7 @@ require_once 'datenbank.inc.php';
 require_once 'funktionen.inc.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-$nn = trim($_POST['name']);
+$nn = trim($_POST['nachname']);
 $vn = trim($_POST['vorname']);
 
 
