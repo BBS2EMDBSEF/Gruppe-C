@@ -9,8 +9,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $nn = trim($_POST['nachname']);
 $vn = trim($_POST['vorname']);
 
-
-
 $mail = trim($_POST['mail']);
 $pwd = password_hash($_POST['passwort'], PASSWORD_DEFAULT);
 
@@ -20,7 +18,6 @@ $statement->execute([$mail]);
 $user = $statement->fetch();
 
 }
-
 
 if(!($user)) {
   $sql = 'INSERT INTO users(nachname,vorname,email,passwort)
