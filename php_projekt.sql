@@ -30,8 +30,6 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- AUTO_INCREMENT für Tabelle `users`
---
 
   CREATE TABLE `files` (
   `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
