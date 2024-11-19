@@ -10,3 +10,4 @@ chmod +x ${SCRIPT_PATH}
 (crontab -l 2>/dev/null; echo "0 2 * * * ${SCRIPT_PATH}") | crontab -
 
 echo "Automatisches Backup-System eingerichtet."
+#Wird wahrscheinlich nicht mehr benötigt (Test Pending)

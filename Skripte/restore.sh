@@ -9,3 +9,4 @@ if [ -f "$LATEST_BACKUP" ]; then
 else
   echo "Kein Backup gefunden."
 fi
+#Wird wahrscheinlich nicht mehr benötigt (Test Pending)
