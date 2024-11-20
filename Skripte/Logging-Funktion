@@ -1,0 +1,9 @@
+# Logging-Funktion
+log() {
+    echo "[$(date +'%Y-%m-%d %H:%M:%S')] $1"
+}
+
+# Backup der ursprünglichen Konfigurationsdateien
+backup_dir="/home/pi/config_backup_$(date +'%Y%m%d_%H%M%S')"
+log "Erstelle Backup-Verzeichnis: $backup_dir"
+mkdir -p "$backup_dir"
