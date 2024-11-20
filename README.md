@@ -3,4 +3,4 @@ projekt sachen hier machen und so
 
 
 
-Louis Patrick Manfred Durin ist Chef
+Louis Patrick Manfred Durin ist Chef aller Chefs
