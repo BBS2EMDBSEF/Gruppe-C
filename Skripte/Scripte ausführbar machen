@@ -1,0 +1,3 @@
+# Skripte ausführbar machen
+chmod +x /usr/local/bin/create-system-backup
+chmod +x /usr/local/bin/restore-system-backup
