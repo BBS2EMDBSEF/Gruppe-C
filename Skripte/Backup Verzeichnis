@@ -1,0 +1,3 @@
+# Erstelle Backup-Verzeichnis
+mkdir -p /home/pi/backups
+chown pi:pi /home/pi/backups
