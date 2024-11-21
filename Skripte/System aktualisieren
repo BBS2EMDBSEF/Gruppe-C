@@ -1,3 +1,0 @@
-# System aktualisieren
-log "System wird aktualisiert..."
-apt update && apt upgrade -y
