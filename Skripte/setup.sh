@@ -9,6 +9,12 @@ log() {
     echo "[$(date +'%Y-%m-%d %H:%M:%S')] $1"
 }
 
+# SYSTEM UPDATE
+log "Aktualisiere System..."
+apt update && apt upgrade -y
+apt autoremove -y
+apt clean
+
 # 1. WEBSERVER
 log "Installation von Apache..."
 apt install -y apache2
