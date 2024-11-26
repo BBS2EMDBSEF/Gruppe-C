@@ -23,7 +23,7 @@
 
     		foreach ($files as $file) {
       			echo '<li><a href="inc/download.php?file_id/' . htmlspecialchars($file['id']) . '">' . 
-        		htmlspecialchars($file['filename']) . '</a></li>';
+        		htmlspecialchars($file['file_name']) . '</a></li>';
     		}
     		?>
   	</ul>
