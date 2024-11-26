@@ -9,21 +9,7 @@
   box-sizing:inherit;
 }
 
-:root {
-  --bg-color:#f3f3f3;
-  --white: #fff;
-	--black: #000;
-  --dark: #333;
-  --gray-blue: #96a1c0;
-  --primary: #007bff;
-  --secondary: #6c757d;
-  --success: #28a745;
-  --info: #17a2b8;
-  --warning: #e3d93d;
-  --danger: #b21f2d;
-	--purple: #AB82FF;
-	--green: #1baa3c; 
-}
+
 
 html{
   box-sizing:content-box;
@@ -268,15 +254,6 @@ nav .sub li a{
   text-decoration: none;
   font-weight: bold;
 }
-#warenByUns {
-  font-size: 16px;
-  margin-bottom: 4px;
-  border: 1px solid gray;
-  background: white;
-}
-#warenByUns input {
-	width: 40px;
-}
 
 .btn .edit{
   background: rgb(118, 190, 118);
@@ -292,21 +269,6 @@ nav .sub li a{
   text-decoration: none;
   font-weight: bold;
 }
-.btn .delete{
-  background: rgb(211, 98, 70) ;
-  border: 2px solid rgb(184, 56, 6) ;
-  padding: 4px;
-  text-decoration: none;
-  color: white;
-  margin-left: 10px;
-}
-.btn .delete:hover,.btn .delete:focus-within{
-  background: rgb(184, 56, 6);
-  transition: all .5s ease-in-out, border 0.2s ease;
-  text-decoration: none;
-  font-weight: bold;
-}
-  /* main */
 
 main .text{
     text-align: center;
@@ -330,6 +292,3 @@ footer p{
     text-decoration: none;
     color: #1e4a64;
 }
-
-
-
