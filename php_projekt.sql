@@ -7,7 +7,7 @@ USE `php_projekt`;
 -- Tabellenstruktur für Tabelle `users`
 
 CREATE TABLE `users` (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` int(10) UNSIGNED NOT NULL,
   `nachname` varchar(255) NOT NULL,
   `vorname` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -30,11 +30,16 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `email` (`email`);
 
 --
+-- AUTO_INCREMENT für Tabelle `users`
+ALTER TABLE `users`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+--
 
   CREATE TABLE `files` (
   `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `user_id` int(10) UNSIGNED NOT NULL,
-  `filename` varchar(255) NOT NULL,
+  `file_name` varchar(255) NOT NULL,
+  `file_path` varchar(255) NOT NULL,
   `uploaded_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`user_id`) REFERENCES `users`(`id`)
