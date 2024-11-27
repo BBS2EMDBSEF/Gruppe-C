@@ -2,7 +2,7 @@
 
 # Fehlerbehandlung
 set -e
-trap 'echo "Ein Fehler ist aufgetreten bei $BASH_COMMAND"' ERR
+trap 'echo "Ein Fehler ist aufgetreten in Zeile $LINENO"' ERR
 
 # Logging-Funktion
 log() {
