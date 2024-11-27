@@ -1,8 +1,6 @@
 #!/bin/bash
 
-# Fehlerbehandlung
-set -e
-trap 'echo "Ein Fehler ist aufgetreten in Zeile $LINENO"' ERR
+
 
 # Logging-Funktion
 log() {
