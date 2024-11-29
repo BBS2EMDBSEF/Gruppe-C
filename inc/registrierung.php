@@ -3,7 +3,6 @@
 session_start();
 
 require_once 'datenbank.inc.php';
-require_once 'funktionen.inc.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $nn = trim($_POST['nachname']);
@@ -27,9 +26,10 @@ if(!($user)) {
      
   $_SESSION['meldung'] = 'Registrierung erfolgreich, Bitte sich einloggen';
 
-  redirect('../index.php');
+  header('Location:'.'../index.php');
+  exit;
 }
 else {
   $_SESSION['meldung'] = 'Die E-Mail existiert!<br />Bitte andere E-Mail eingeben';
-  redirect('../index.php?page=registrierung');
+  header('../index.php?page=registrierung');
 }
