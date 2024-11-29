@@ -3,7 +3,18 @@
 session_start();
 
 include 'datenbank.inc.php';
-require_once 'funktionen.inc.php';
+
+/*
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+ini_set('file_uploads', 'On');
+ini_set('upload_max_filesize', '5M');
+ini_set('post_max_size', '8M');
+*/
+$directory = __DIR__ . '/';
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['file'])) {
     $filename = basename($_FILES["file"]["name"]);
     $filedata = file_get_contents($_FILES["file"]["tmp_name"]);
@@ -30,7 +41,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['file'])) {
         }
     }
     
-    redirect('../index.php');
+    header('Location:'.'../index.php');
+    exit;
 }
 
 ?>
