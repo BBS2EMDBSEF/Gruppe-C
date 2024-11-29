@@ -1,9 +1,11 @@
 <?php 
 
 session_start();
-require_once 'funktionen.inc.php';
 
-loggeAus();
+unset($_SESSION['eingeloggt']);
+unset($_SESSION['eingeloggt_user']);
+unset($_SESSION['id']);
 $_SESSION['meldung'] = 'Sie sind abgemeldet.';
 
-redirect('../index.php');
+header('Location:'.'../index.php');
+  exit;
