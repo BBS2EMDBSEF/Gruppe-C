@@ -13,9 +13,108 @@ apt update && apt upgrade -y
 apt autoremove -y
 apt clean
 
-# 1. WEBSERVER
-log "Installation von Apache..."
-apt install -y apache2
+# Apache und PHP Installation
+apt install -y apache2 php php-mysql php-common php-cli php-json php-mbstring php-zip libapache2-mod-php
+
+# Apache Konfiguration für die Website
+cat > /etc/apache2/sites-available/000-default.conf <<EOF
+<VirtualHost *:80>
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/html
+    
+    <Directory /var/www/html>
+        Options FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    # Konfiguration für PHP-Dateien
+    <FilesMatch "\.php$">
+        SetHandler application/x-httpd-php
+    </FilesMatch>
+
+    ErrorLog \${APACHE_LOG_DIR}/error.log
+    CustomLog \${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+EOF
+
+# PHP Konfiguration
+cat > /etc/php/*/apache2/php.ini <<EOF
+[PHP]
+engine = On
+short_open_tag = Off
+memory_limit = 128M
+upload_max_filesize = 64M
+post_max_size = 64M
+max_execution_time = 30
+max_input_time = 60
+error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT
+display_errors = Off
+display_startup_errors = Off
+log_errors = On
+error_log = /var/log/php_errors.log
+default_charset = "UTF-8"
+date.timezone = Europe/Berlin
+
+[Session]
+session.save_handler = files
+session.save_path = "/var/lib/php/sessions"
+session.use_strict_mode = 1
+session.use_cookies = 1
+session.use_only_cookies = 1
+session.name = PHPSESSID
+session.cookie_httponly = 1
+session.cookie_samesite = Strict
+EOF
+
+# .htaccess für zusätzliche Sicherheit
+cat > /var/www/html/.htaccess <<EOF
+# Verzeichnislisting deaktivieren
+Options -Indexes
+
+# PHP Fehler nicht anzeigen
+php_flag display_errors off
+
+# Zugriff auf .inc Dateien verbieten
+<FilesMatch "\.inc$">
+    Require all denied
+</FilesMatch>
+
+# Basis Sicherheitsheader
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+EOF
+
+# Apache Module aktivieren
+a2enmod rewrite
+a2enmod headers
+
+# Berechtigungen setzen
+chown -R www-data:www-data /var/www
+find /var/www/html -type f -exec chmod 644 {} \;
+find /var/www/html -type d -exec chmod 755 {} \;
+chmod 644 /var/www/html/.htaccess
+
+# Verzeichnis für PHP-Sessions
+mkdir -p /var/lib/php/sessions
+chown www-data:www-data /var/lib/php/sessions
+chmod 700 /var/lib/php/sessions
+
+# PHP Error Log erstellen
+touch /var/log/php_errors.log
+chown www-data:www-data /var/log/php_errors.log
+chmod 664 /var/log/php_errors.log
+
+# Apache neustarten
+systemctl restart apache2
+
+echo "Apache und PHP sind konfiguriert."
+echo "Platziere deine .php Dateien in /var/www/html"
+echo "Platziere deine .inc Dateien in /var/www/includes"
+echo "PHP-Fehler werden in /var/log/php_errors.log protokolliert"
 
 # 2. & 3. MYSQL & PHPMYADMIN
 log "Installation von MariaDB und phpMyAdmin..."
