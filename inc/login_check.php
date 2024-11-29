@@ -1,12 +1,9 @@
 <?php 
-
 session_start();
 require_once 'datenbank.inc.php';
-require_once 'funktionen.inc.php';
 
-$mail = bereinige($_POST['mail']);
-$pwd = bereinige($_POST['pwd']);
-
+$mail = $_POST['mail'];
+$pwd = $_POST['pwd'];
 
 if( !empty($mail) && !empty($pwd)) {
   $sql = 'SELECT * FROM users WHERE email = ?';
@@ -18,6 +15,7 @@ if( !empty($mail) && !empty($pwd)) {
     $_SESSION['eingeloggt'] = $user['email'];
     $_SESSION['eingeloggt_user'] = $user['nachname'];
     $_SESSION['id'] = $user['id'];
+    $_SESSION['meldung'] = 'Sie sind eingeloggt';
   } 
   else {
     $_SESSION['meldung'] = 'Falsche Logindaten oder Sie sind noch nicht Ihnen registrieren';
@@ -28,4 +26,7 @@ else {
   $_SESSION['meldung'] = 'Felder dürfen nicht leer sein';
 }
 
-redirect('../index.php');
+
+header('Location:'.'../index.php');
+  exit;
+  
