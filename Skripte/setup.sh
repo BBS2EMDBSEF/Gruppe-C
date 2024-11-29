@@ -232,6 +232,7 @@ echo -e "\n=== Dienste Status ==="
 systemctl status apache2 | grep Active
 systemctl status mysql | grep Active
 systemctl status ssh | grep Active
+systemctl status php | grep Active
 echo -e "\n=== Speicher ==="
 free -h
 echo -e "\n=== Festplatte ==="
