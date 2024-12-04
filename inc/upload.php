@@ -44,5 +44,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['file'])) {
     header('Location:'.'../index.php');
     exit;
 }
+    
+    /*
+    session_start();
+
+include 'datenbank.inc.php';
+// Überprüft ob server unter Windows oder Linux läuft
+if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+    $
+}
+
+$directory = __DIR__ . '/';
+// Upload
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['file'])) {
+    $filename = $_FILES["file"];
+    $target_path = $user_dir . basename($filename["name"]);
+    if (move_uploaded_file($_FILES["tmp_name"], $target_path)) {
+        $_SESSION['meldung'] = "The file ". htmlspecialchars($filename) . " has been uploaded.";
+        header("Location: user_menue.inc.php"); // Siete neustarten
+        exit();
+    } else {
+        $_SESSION['meldung'] = 'Fehler beim Hochladen';
+    }
+}
+    */
 
 ?>
