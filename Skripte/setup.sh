@@ -1,7 +1,5 @@
 #!/bin/bash
 
-
-
 # Logging-Funktion
 log() {
     echo "[$(date +'%Y-%m-%d %H:%M:%S')] $1"
@@ -111,20 +109,56 @@ chmod 664 /var/log/php_errors.log
 # Apache neustarten
 systemctl restart apache2
 
-echo "Apache und PHP sind konfiguriert."
-echo "Platziere deine .php Dateien in /var/www/html"
-echo "Platziere deine .inc Dateien in /var/www/includes"
-echo "PHP-Fehler werden in /var/log/php_errors.log protokolliert"
-
 # 2. & 3. MYSQL & PHPMYADMIN
 log "Installation von MariaDB und phpMyAdmin..."
 apt install -y mariadb-server phpmyadmin
 
-# MariaDB für Pi-User konfigurieren
+# Lösche Standard Apache Seite
+log "Konfiguriere Website..."
+rm -f /var/www/html/index.html
+
+# MariaDB Konfiguration mit festem Passwort
+log "Konfiguriere MariaDB..."
 mysql -e "
-    CREATE USER IF NOT EXISTS 'pi'@'localhost' IDENTIFIED VIA unix_socket;
+    ALTER USER 'root'@'localhost' IDENTIFIED BY 'c';
+    CREATE USER 'pi'@'localhost' IDENTIFIED BY 'c';
     GRANT ALL PRIVILEGES ON *.* TO 'pi'@'localhost' WITH GRANT OPTION;
     FLUSH PRIVILEGES;"
+
+# Erstelle und importiere Datenbank
+log "Erstelle und konfiguriere Datenbank..."
+mysql -u root -pc << "EOF"
+CREATE DATABASE IF NOT EXISTS php_projekt DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE php_projekt;
+
+CREATE TABLE users (
+  id int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  nachname varchar(255) NOT NULL,
+  vorname varchar(255) NOT NULL,
+  email varchar(255) NOT NULL,
+  passwort varchar(255) NOT NULL,
+  PRIMARY KEY (id),
+  UNIQUE KEY email (email)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO users (nachname, vorname, email, passwort) VALUES
+('Borna', 'Ghazaleh', 'borna@borna.de', '\$2y\$10\$mJ75vpei0M2ElJDZMwEOhu2LUu3Ng8MEHQPBqCXA5CRegaCnkeF0K'),
+('admin', 'admin', 'admin@admin.de', '\$2y\$10\$0bKqPZ80Uokt8Y8bTjKroup6rQGYO6PBMi8RbqaOa7B6SEClO7T7.');
+
+CREATE TABLE files (
+  id int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  user_id int(10) UNSIGNED NOT NULL,
+  file_name varchar(255) NOT NULL,
+  file_path varchar(255) NOT NULL,
+  uploaded_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  FOREIGN KEY (user_id) REFERENCES users(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+EOF
+
+# Kopiere Website-Dateien
+cd /home/pi/Gruppe-C
+cp -r inc js css img index.php /var/www/html/
 
 # 4. SICHERHEIT
 
@@ -136,7 +170,7 @@ BACKUP_DIR="/root/backups/\$(date +%Y%m%d)"
 mkdir -p \$BACKUP_DIR
 
 # MySQL Dump
-mysqldump --all-databases > \$BACKUP_DIR/all_databases.sql
+mysqldump --all-databases -u root -pc > \$BACKUP_DIR/all_databases.sql
 
 # Apache Config
 cp -r /etc/apache2 \$BACKUP_DIR/
@@ -175,7 +209,7 @@ cp -r mysql/* /etc/mysql/
 cp -r www/* /var/www/
 
 # Restore Database
-mysql < all_databases.sql
+mysql -u root -pc < all_databases.sql
 
 systemctl start apache2 mysql
 rm -rf "\$RESTORE_DIR"
@@ -252,6 +286,11 @@ log "Installation abgeschlossen!"
 log "Wichtige Informationen:"
 log "- SSH Port: 22222"
 log "- SSH Private Key: /home/pi/.ssh/id_rsa"
+log "- MariaDB/phpMyAdmin Zugangsdaten:"
+log "  Benutzer: pi oder root"
+log "  Passwort: c"
+log "- Website wurde in /var/www/html installiert"
+log "- Datenbank 'php_projekt' wurde erstellt"
 log "- Backups: Täglich um 03:00 Uhr in /root/backups/"
 log "- System-Check: Alle 5 Minuten in /var/log/system-status.log"
 log "- Backup durchführen: backup-lamp"
