@@ -128,32 +128,53 @@ mysql -e "
 # Erstelle und importiere Datenbank
 log "Erstelle und konfiguriere Datenbank..."
 mysql -u root -pc << "EOF"
-CREATE DATABASE IF NOT EXISTS php_projekt DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE php_projekt;
+-- Datenbank: `php_projekt`
+--
+CREATE DATABASE IF NOT EXISTS `php_projekt` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `php_projekt`;
 
-CREATE TABLE users (
-  id int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  nachname varchar(255) NOT NULL,
-  vorname varchar(255) NOT NULL,
-  email varchar(255) NOT NULL,
-  passwort varchar(255) NOT NULL,
-  PRIMARY KEY (id),
-  UNIQUE KEY email (email)
+-- --------------------------------------------------------
+-- Tabellenstruktur für Tabelle `users`
+
+CREATE TABLE `users` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `nachname` varchar(255) NOT NULL,
+  `vorname` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `passwort` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO users (nachname, vorname, email, passwort) VALUES
-('Borna', 'Ghazaleh', 'borna@borna.de', '\$2y\$10\$mJ75vpei0M2ElJDZMwEOhu2LUu3Ng8MEHQPBqCXA5CRegaCnkeF0K'),
-('admin', 'admin', 'admin@admin.de', '\$2y\$10\$0bKqPZ80Uokt8Y8bTjKroup6rQGYO6PBMi8RbqaOa7B6SEClO7T7.');
+--
+-- Daten für Tabelle `users`
+--
 
-CREATE TABLE files (
-  id int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  user_id int(10) UNSIGNED NOT NULL,
-  file_name varchar(255) NOT NULL,
-  file_path varchar(255) NOT NULL,
-  uploaded_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (id),
-  FOREIGN KEY (user_id) REFERENCES users(id)
+INSERT INTO `users` (`id`, `nachname`, `vorname`, `email`, `passwort`) VALUES
+(75, 'Borna', 'Ghazaleh', 'borna@borna.de', '$2y$10$mJ75vpei0M2ElJDZMwEOhu2LUu3Ng8MEHQPBqCXA5CRegaCnkeF0K'),
+(76, 'admin', 'admin', 'admin@admin.de', '$2y$10$0bKqPZ80Uokt8Y8bTjKroup6rQGYO6PBMi8RbqaOa7B6SEClO7T7.');
+
+
+-- Indizes für die Tabelle `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
+-- AUTO_INCREMENT für Tabelle `users`
+ALTER TABLE `users`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+--
+
+  CREATE TABLE `files` (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `file_name` varchar(255) NOT NULL,
+  `file_path` varchar(255) NOT NULL,
+  `uploaded_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`user_id`) REFERENCES `users`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 EOF
 
 # Kopiere Website-Dateien
