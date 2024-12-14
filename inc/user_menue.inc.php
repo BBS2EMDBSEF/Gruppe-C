@@ -6,7 +6,7 @@
     <li><a href="inc/logout.php">Logout</a></li>
   </ul>
 
-  <p>Eingeloggt als: <em><?= $_SESSION['eingeloggt_user']?></em> </p>
+  <p>Eingeloggt als: <em><?= $_SESSION['eingeloggt_user'] ?></em> </p>
 
   <form action="inc/upload.php" method="post" enctype="multipart/form-data">
     <label for="file">Datei hochladen:</label>
@@ -17,16 +17,24 @@
   <h3>Hochgeladene Dateien:</h3>
   <ul>
     <?php
-    require 'inc/datenbank.inc.php'; // Datei mit der Datenbankverbindung
-    $stmt = $db->prepare("SELECT * FROM files WHERE user_id = ?");
-    $stmt->execute([$_SESSION['id']]);
-    $files = $stmt->fetchAll();
+    // Importiere die Funktionalität zur Anzeige der Dateien aus upload.php
+    include_once 'inc/upload.php';
 
-    foreach ($files as $file) {
-      echo '<li><a href="inc/download.php?nama=' . htmlspecialchars($file['file_path']) . '">' . 
-        htmlspecialchars($file['file_name']) . '</a></li>';
+    // Überprüfen, ob Dateien existieren und auflisten
+    if (!empty($user_files)) {
+        foreach ($user_files as $file) {
+            echo "<li>";
+            echo htmlspecialchars($file); // Sicherheitsmaßnahme gegen XSS
+            echo " <button><a href='inc/upload.php?download=" . urlencode($file) . "'>Download</a><button>"; // Download-Link
+            echo " <form style='display:inline;' action='inc/upload.php' method='post'>"; // Löschen-Button
+            echo "   <input type='hidden' name='delete_file' value='" . htmlspecialchars($file) . "'>";
+            echo "   <button type='submit'>Löschen</button>";
+            echo " </form>";
+            echo "</li>";
+        }
+    } else {
+        echo "<li>Keine Dateien hochgeladen.</li>";
     }
     ?>
   </ul>
 </div>
-
