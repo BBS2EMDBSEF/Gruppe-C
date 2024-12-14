@@ -16,6 +16,18 @@ if( !empty($mail) && !empty($pwd)) {
     $_SESSION['eingeloggt_user'] = $user['nachname'];
     $_SESSION['id'] = $user['id'];
     $_SESSION['meldung'] = 'Sie sind eingeloggt';
+
+    
+// Überprüfen, ob der Server unter Windows oder Linux läuft
+if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+  // Windows
+  // Benutzerverzeichnis auf dem Server erstellen
+  $homeDir = "/var/www/html/users/$mail";
+  if (!is_dir($homeDir)) {
+  mkdir($homeDir, 0755, true); // Verzeichnis erstellen
+  }
+  }
+
   } 
   else {
     $_SESSION['meldung'] = 'Falsche Logindaten oder Sie sind noch nicht Ihnen registrieren';
