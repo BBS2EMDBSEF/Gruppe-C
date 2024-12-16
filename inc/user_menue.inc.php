@@ -21,8 +21,8 @@
     include_once 'inc/upload.php';
 
     // Überprüfen, ob Dateien existieren und auflisten
-    if (!empty($user_files)) {
-        foreach ($user_files as $file) {
+    if (!empty($userFiles)) {
+        foreach ($userFiles as $file) {
             echo "<li>";
             echo htmlspecialchars($file); // Sicherheitsmaßnahme gegen XSS
             echo " <button><a href='inc/upload.php?download=" . urlencode($file) . "'>Download</a><button>"; // Download-Link
