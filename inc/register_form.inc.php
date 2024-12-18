@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
 	<meta charset="utf-8" />
-	<title>PHP-Projekt</title>
+	<title>BBS 2 Emden - Verwaltung</title>
 	
  
 	<style>
@@ -16,7 +16,7 @@
 <body>
 <div id="container">
 <header>
-<a class="logo" href="index.php?page=home"><img src="img/logo.png" alt="" width="150" height="100"></a>
+<a class="logo" href="index.php?page=home"><img src="img/logo.png" alt="" width="200px" height="185px"></a>
 </header>
 
 <!--+++++MENUE+++++-->
