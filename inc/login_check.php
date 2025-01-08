@@ -30,7 +30,7 @@ if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
 
   } 
   else {
-    $_SESSION['meldung'] = 'Falsche Logindaten oder Sie sind noch nicht Ihnen registrieren';
+    $_SESSION['meldung'] = 'Falsche Logindaten oder Sie sind noch nicht registriert';
   }
   //--------------------------------
 }

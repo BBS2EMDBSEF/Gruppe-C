@@ -24,12 +24,12 @@ if(!($user)) {
   $statement = $db->prepare($sql);
   $statement->execute([$nn,$vn,$mail,$pwd]);  
      
-  $_SESSION['meldung'] = 'Registrierung erfolgreich, Bitte sich einloggen';
+  $_SESSION['meldung'] = 'Registrierung erfolgreich, Sie können sich jetzt einloggen';
 
   header('Location:'.'../index.php');
   exit;
 }
 else {
-  $_SESSION['meldung'] = 'Die E-Mail existiert!<br />Bitte andere E-Mail eingeben';
+  $_SESSION['meldung'] = 'Die E-Mail existiert schon bereits!<br />Bitte andere E-Mail eingeben';
   header('../index.php?page=registrierung');
 }
