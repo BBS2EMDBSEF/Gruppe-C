@@ -6,7 +6,6 @@
 	<style>
 	<?php
 		include 'css/master.css';
-		include 'css/fonts.css';
 		include 'css/media.css';
 	?>
 	</style>
@@ -23,18 +22,6 @@
 <nav title="Menü">
   <a href="#open" class="open" id="open">open</a>
   <a href="#" class="close">close</a>
-
-  <ul class="resp-menu">
-
-	  <li class="<?= empty($page) ? 'active' : ''; ?>">
-		  <a href="index.php" title="Home">HOME</a>
-	  </li>
-
-		<li id="liRegister" class="<?php echo ($page === 'registrierung') ? 'active' : ''; ?>">
-		      <a href="index.php?page=registrierung">REGISTRIERUNG</a>
-	  </li>
-
-  </ul>
 </nav>
 
 <?php if(isset($meldung)): ?>
@@ -61,10 +48,10 @@ endif;
     </form>
 
   <p> <a href="index.php?page=registrierung">Registrierung</a> </p>
-</div>
-<?php
-  }
-  ?>
+  </div>
+  <?php
+    }
+    ?>
 
   <div class="text">			
      <h1>Herzlich Willkommen</h1>
