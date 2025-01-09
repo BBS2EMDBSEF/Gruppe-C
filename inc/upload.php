@@ -37,18 +37,28 @@ $userFiles = getUserFiles($userdDirectory);
 
 // Upload
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['file'])) {
+    if (!is_dir($userdDirectory)) {
+        mkdir($userdDirectory, 0777, true);
+    }
+
     $uploadFile = $_FILES['file'];
     $targetPath = $userdDirectory . basename($uploadFile['name']);
 
-    if (move_uploaded_file($uploadFile['tmp_name'], $targetPath)) {
-        $_SESSION['meldung'] = "Datei ist hochgeladen";
+    if ($uploadFile['error'] === UPLOAD_ERR_OK) {
+        if (move_uploaded_file($uploadFile['tmp_name'], $targetPath)) {
+            $_SESSION['meldung'] = "Datei wurde erfolgreich hochgeladen.";
+        } else {
+            $_SESSION['meldung'] = "Fehler beim Verschieben der Datei.";
+        }
     } else {
-        $_SESSION['meldung'] = "Fehler beim Hochladen";
+        $_SESSION['meldung'] = "Upload-Fehler: " . $uploadFile['error'];
     }
+
     // Seite neu laden
-    header("Location: ../index.php"); 
+    header("Location: ../index.php");
     exit();
 }
+
 
 // Datei löschen
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_file'])) {
