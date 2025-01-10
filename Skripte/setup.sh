@@ -53,6 +53,7 @@ log_errors = On
 error_log = /var/log/php_errors.log
 default_charset = "UTF-8"
 date.timezone = Europe/Berlin
+file_uploads = On
 
 [Session]
 session.save_handler = files
