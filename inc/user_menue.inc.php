@@ -13,7 +13,7 @@
     <input type="file" name="file" id="file" required>
     <input type="submit" value="Hochladen" name="submit">
   </form>
-  
+
   <h3>Hochgeladene Dateien:</h3>
   <ul>
     <?php
@@ -22,18 +22,18 @@
 
     // Überprüfen, ob Dateien existieren und auflisten
     if (!empty($userFiles)) {
-        foreach ($userFiles as $file) {
-            echo "<li>";
-            echo htmlspecialchars($file); // Sicherheitsmaßnahme gegen XSS
-            echo " <button><a href='inc/upload.php?download=" . urlencode($file) . "'>Download</a><button>"; // Download-Link
-            echo " <form style='display:inline;' action='inc/upload.php' method='post'>"; // Löschen-Button
-            echo "   <input type='hidden' name='delete_file' value='" . htmlspecialchars($file) . "'>";
-            echo "   <button type='submit'>Löschen</button>";
-            echo " </form>";
-            echo "</li>";
-        }
+      foreach ($userFiles as $file) {
+        echo "<li>";
+        echo htmlspecialchars($file); // Sicherheitsmaßnahme gegen XSS
+        echo " <button><a href='inc/upload.php?download=" . urlencode($file) . "'>Download</a><button>"; // Download-Link
+        echo " <form style='display:inline;' action='inc/upload.php' method='post'>"; // Löschen-Button
+        echo "   <input type='hidden' name='delete_file' value='" . htmlspecialchars($file) . "'>";
+        echo "   <button type='submit'>Löschen</button>";
+        echo " </form>";
+        echo "</li>";
+      }
     } else {
-        echo "<li>Keine Dateien hochgeladen.</li>";
+      echo "<li>Keine Dateien hochgeladen.</li>";
     }
     ?>
   </ul>

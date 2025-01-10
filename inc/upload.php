@@ -7,7 +7,7 @@ include 'datenbank.inc.php';
 
 // Überprüfen, ob der Benutzer über Email-Adresse eingeloggt ist
 if (!isset($_SESSION['eingeloggt'])) {
-    $_SESSION['meldung'] =("Sie müssen eingeloggt sein, um diese Funktion zu nutzen.");
+    $_SESSION['meldung'] = ("Sie müssen eingeloggt sein, um diese Funktion zu nutzen.");
 }
 
 $mail = $_SESSION['eingeloggt']; // E-Mail-Adresse des Benutzers aus der Session
@@ -20,7 +20,8 @@ if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
 }
 
 //Abrufen die Dateien im Home-Verzeichnis
-function getUserFiles($dir) {
+function getUserFiles($dir)
+{
     $files = [];
     if (is_dir($dir)) {
         foreach (scandir($dir) as $file) {
@@ -46,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['file'])) {
         $_SESSION['meldung'] = "Fehler beim Hochladen";
     }
     // Seite neu laden
-    header("Location: ../index.php"); 
+    header("Location: ../index.php");
     exit();
 }
 
