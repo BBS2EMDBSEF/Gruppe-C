@@ -18,13 +18,7 @@ Navigieren Sie in das geklonte Verzeichnis:
 cd Gruppe-C
 ```
 
-### 3. **Skript ausführbar machen**
-Stellen Sie sicher, dass das Skript ausführbar ist:
-```bash
-chmod +x script.sh
-```
-
-### 4. **Skript ausführen**
+### 3. **Skript ausführen**
 Führen Sie das Skript mit Root-Rechten aus:
 ```bash
 sudo ./script.sh
@@ -65,9 +59,6 @@ Ein Monitoring-Skript prüft den Zustand des Systems (z. B. Dienste, Speicher) u
 - **SSH**
   - Port: `22222`
   - Privater Schlüssel: `/home/pi/.ssh/id_rsa`
-- **phpMyAdmin/MariaDB Zugangsdaten**:
-  - Benutzer: `pi` oder `root`
-  - Passwort: `c`
 - **Backups**:
   - Verzeichnis: `/root/backups/`
   - Tägliche Erstellung: 03:00 Uhr
