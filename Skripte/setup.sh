@@ -200,6 +200,10 @@ cp -r /etc/php \$BACKUP_DIR/
 cp -r /etc/mysql \$BACKUP_DIR/
 cp -r /var/www \$BACKUP_DIR/
 
+# Logs Backup
+cp -r /var/log/apache2 $BACKUP_DIR/logs/
+cp -r /var/log/mysql $BACKUP_DIR/logs/
+
 # Komprimiere alles
 tar -czf \$BACKUP_DIR.tar.gz \$BACKUP_DIR
 rm -rf \$BACKUP_DIR
