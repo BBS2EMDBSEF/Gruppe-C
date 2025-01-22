@@ -37,6 +37,7 @@ header img:hover,header img:focus-within{
   width: 200px;
   transition: all .5s ease-in-out, border 0.2s ease;
 }
+
 /* nav */
 nav {background:#6f93a8;}
 nav ul{margin:0;padding:0;list-style:none;}
@@ -171,11 +172,7 @@ nav .sub li a{
   transition: all .5s ease-in-out, border 0.2s ease;
   font-weight: bold;
 }
-/*
-.loginForm p .active a{
-  background:rgb(118, 190, 118);
-}
-*/
+
 .loginForm .subLoggin{
   background: #33d7dd;
   border:1px solid #1e4a64 ;
