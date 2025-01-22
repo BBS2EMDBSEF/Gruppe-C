@@ -27,6 +27,9 @@ if (!empty($mail) && !empty($pwd)) {
         mkdir($homeDir, 0755, true); // Verzeichnis erstellen
       }
     }
+    else {
+      $userdDirectory = "/home/$mail/";
+   }
   } else {
     $_SESSION['meldung'] = 'Falsche Logindaten oder Sie sind noch nicht registriert';
   }

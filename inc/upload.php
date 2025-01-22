@@ -30,18 +30,6 @@ if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
 }
 debug_log("Benutzerverzeichnis: $userdDirectory");
 
-// Verzeichnis erstellen, falls es nicht existiert
-if (!file_exists($userdDirectory)) {
-    if (mkdir($userdDirectory, 0755, true)) {
-        debug_log("Verzeichnis erfolgreich erstellt: $userdDirectory");
-    } else {
-        debug_log("Fehler beim Erstellen des Verzeichnisses: $userdDirectory");
-        $_SESSION['meldung'] = "Fehler beim Erstellen des Benutzerverzeichnisses.";
-        header("Location: ../index.php");
-        exit();
-    }
-}
-
 // Abrufen der Dateien im Home-Verzeichnis
 function getUserFiles($dir)
 {
