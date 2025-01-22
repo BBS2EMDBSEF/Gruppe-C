@@ -26,7 +26,9 @@ if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
   if (!is_dir($homeDir)) {
   mkdir($homeDir, 0755, true); // Verzeichnis erstellen
   }
-  }
+} else {
+  $userdDirectory = "/home/$username/";
+}
 
   } 
   else {
