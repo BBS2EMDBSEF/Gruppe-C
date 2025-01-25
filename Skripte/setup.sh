@@ -126,44 +126,6 @@ mysql -e "
     GRANT ALL PRIVILEGES ON *.* TO 'pi'@'localhost' WITH GRANT OPTION;
     FLUSH PRIVILEGES;"
 
-# Erstelle und importiere Datenbank
-log "Erstelle und konfiguriere Datenbank..."
-mysql -u root -pc << "EOF"
--- Datenbank: `php_projekt`
-CREATE DATABASE IF NOT EXISTS `php_projekt` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `php_projekt`;
-
--- --------------------------------------------------------
--- Tabellenstruktur für Tabelle `users`
-CREATE TABLE `users` (
-  `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `username` VARCHAR(255) NOT NULL,
-  `nachname` VARCHAR(255) NOT NULL,
-  `vorname`  VARCHAR(255) NOT NULL,
-  `email`    VARCHAR(255) NOT NULL,
-  `passwort` VARCHAR(255) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- Beispiel-Datensätze
-INSERT INTO `users` (`id`, `username`, `nachname`, `vorname`, `email`, `passwort`) VALUES
-(75, 'borna', 'Borna', 'Ghazaleh', 'borna@borna.de', '$2y$10$mJ75vpei0M2ElJDZMwEOhu2LUu3Ng8MEHQPBqCXA5CRegaCnkeF0K'),
-(76, 'admin', 'admin', 'admin', 'admin@admin.de', '$2y$10$0bKqPZ80Uokt8Y8bTjKroup6rQGYO6PBMi8RbqaOa7B6SEClO7T7.');
-
--- --------------------------------------------------------
--- Tabellenstruktur für Tabelle `files`
-CREATE TABLE `files` (
-  `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `user_id` INT(10) UNSIGNED NOT NULL,
-  `file_name` VARCHAR(255) NOT NULL,
-  `file_path` VARCHAR(255) NOT NULL,
-  `uploaded_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  FOREIGN KEY (`user_id`) REFERENCES `users`(`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-EOF
-
 # Kopiere Website-Dateien
 cd /home/pi/Gruppe-C
 cp -r inc js css img index.php /var/www/html/
