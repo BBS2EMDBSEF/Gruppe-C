@@ -16,24 +16,21 @@ if (!isset($_SESSION['eingeloggt'])) {
 // Name des aktuell eingeloggten Benutzers aus der Session
 $username = $_SESSION['eingeloggt'];
 
-// 2) Je nach OS ein anderes Basis-Verzeichnis
-if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
-    // Unter Windows (Beispielpfad, ggf. anpassen!)
-    $userDirectory = "C:/var/www/html/usernames/$username/";
-} else {
-    // Unter Linux (Beispielpfad, ggf. anpassen!)
-    $userDirectory = "/home/$username/";
-}
+// 2) Festes Basis-Verzeichnis auf Linux:
+$userDirectory = "/var/www/uploads/$username/";
 
 // 3) Verzeichnis ggf. anlegen, falls nicht vorhanden
 if (!is_dir($userDirectory)) {
-    // 0775 = lesen/schreiben für User+Gruppe, lesen für andere
-    // true = ggf. verschachtelte Unterordner automatisch anlegen
+    // 0775 = lesen/schreiben für Owner+Group, lesen für Andere
     mkdir($userDirectory, 0775, true);
-    
-    // Unter Linux ggf. Ownership auf www-data:www-data setzen:
+
+    // An dieser Stelle ein chown/chgrp via PHP ist i.d.R. nur möglich,
+    // wenn dein PHP-Prozess Root-Rechte hat. Meist nicht der Fall:
     // chown($userDirectory, 'www-data');
     // chgrp($userDirectory, 'www-data');
+    // => Besser einmalig per Shell machen:
+    //    sudo chown -R www-data:www-data /var/www/uploads
+    //    sudo chmod -R 775 /var/www/uploads
 }
 
 // 4) Dateien im Benutzerverzeichnis auflisten (zur Anzeige)
