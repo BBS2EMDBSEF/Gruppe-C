@@ -310,5 +310,9 @@ log "- Backup durchführen: backup-lamp"
 log "- Backup wiederherstellen: restore-lamp [backup.tar.gz]"
 log "- System-Status prüfen: check-system"
 
+sudo mkdir -p /var/www/uploads
+sudo chown -R www-data:www-data /var/www/uploads
+sudo chmod -R 775 /var/www/uploads
+
 # Führe ersten System-Check durch
 /usr/local/bin/check-system
