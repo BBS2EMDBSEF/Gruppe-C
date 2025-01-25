@@ -96,16 +96,18 @@ endif;
         alert('Vorname muss mindestens 2 Buchstaben lang sein und darf nur Buchstaben enthalten.');
         event.preventDefault();
       }
-
-      if (!usernamePattern.test(username)) {
-        alert('Username darf nur am Anfang Buchstaben enthalten und dann kann auch Zahlen kommen. Ohne Leerzeichen.');
-        event.preventDefault();
-      }
       
       if (!passwortPattern.test(passwort)) {
         alert('Passwort muss mindestens 6 Zeichen lang sein.');
         event.preventDefault();
       }
+
+      if (!usernamePattern.test(username)) {
+        alert('Benutzername darf nur mit einem Kleinbuchstaben beginnen und kann danach nur Zahlen und Buchstaben enthalten. Ohne Leerzeichen.');
+        event.preventDefault();
+      }
+      
+      
     });
   </script>
 
