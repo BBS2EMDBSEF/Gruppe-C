@@ -72,7 +72,7 @@ cat > /var/www/html/.htaccess <<EOF
 Options -Indexes
 
 # PHP Fehler nicht anzeigen
-php_flag display_errors off
+php_flag display_errors on
 
 # Zugriff auf .inc Dateien verbieten
 <FilesMatch "\.inc$">
@@ -142,17 +142,15 @@ CREATE TABLE `users` (
   `username` VARCHAR(255) NOT NULL,
   `nachname` VARCHAR(255) NOT NULL,
   `vorname`  VARCHAR(255) NOT NULL,
-  `email`    VARCHAR(255) NOT NULL,
   `passwort` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `email` (`email`),
   UNIQUE KEY `username` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Beispiel-Datensätze
-INSERT INTO `users` (`id`, `username`, `nachname`, `vorname`, `email`, `passwort`) VALUES
-(75, 'borna', 'Borna', 'Ghazaleh', 'borna@borna.de', '$2y$10$mJ75vpei0M2ElJDZMwEOhu2LUu3Ng8MEHQPBqCXA5CRegaCnkeF0K'),
-(76, 'admin', 'admin', 'admin', 'admin@admin.de', '$2y$10$0bKqPZ80Uokt8Y8bTjKroup6rQGYO6PBMi8RbqaOa7B6SEClO7T7.');
+INSERT INTO `users` (`id`, `username`, `nachname`, `vorname`, `passwort`) VALUES
+(75, 'borna', 'Borna', 'Ghazaleh', '$2y$10$mJ75vpei0M2ElJDZMwEOhu2LUu3Ng8MEHQPBqCXA5CRegaCnkeF0K'),
+(76, 'admin', 'admin', 'admin', '$2y$10$0bKqPZ80Uokt8Y8bTjKroup6rQGYO6PBMi8RbqaOa7B6SEClO7T7.');
 
 -- --------------------------------------------------------
 -- Tabellenstruktur für Tabelle `files`
